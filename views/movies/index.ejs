@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movies</title>
+</head>
+<body>
+    <h1>All Movies</h1>
+    <a href= '/movies/new'><button>New</button></a><br>
+    <% movies.forEach(function(movie){ %>
+        <div>
+            <h2><%= movie.title %></h2>
+            <p><%= movie.releaseYear %></p>
+            <p><%= movie.cast.join(', ') %></p>
+            <p><%= movie.rating %></p>
+        <a href= '/movies/<%= movie._id %>'><button>Show</button></a><br>
+        <a href= '/movies/<%= movie._id %>/edit'><button>Edit</button></a>
+            
+        <form method='POST' action="/movies/<%= movie._id %>?_method=DELETE">
+            <button class="delete" type="submit" name="movie" value="<%= movie._id %>">Delete</button>
+        </form>
+        </div>
+    <% }) %>
+    
+</body>
+</html>

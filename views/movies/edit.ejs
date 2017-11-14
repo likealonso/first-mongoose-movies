@@ -1,0 +1,27 @@
+<h2>Edit a Movie</h2>
+<form action="/movies/<%= movie._id %>?_method=PUT" method="post">
+    
+        
+    <label>Title:
+        <input type="text" name="title" value="<%= movie.title %>">
+    </label><br>
+    <label>Release year
+        <input type="text" value="<%= movie.releaseYear %>" name="releaseYear">
+    </label><br>
+    <label>Rating
+        <select value="<%= movie.rating %>" name="rating">
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13" selected>PG13</option>
+            <option value="R">R</option>
+        </select>
+    </label><br>
+    <label>Cast(separte actors with commas):
+        <input type="text" value="<%= movie.cast %>" name="cast">
+    </label><br>
+    <label>Now Showing
+        <input type="checkbox" value="<%= movie.nowShowing %>" name="nowShowing" checked>
+    </label><br>
+    <input type="submit" value="Edit Movie">
+    <a href="/movies">View all movies</a>
+</form>
